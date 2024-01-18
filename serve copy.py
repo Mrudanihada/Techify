@@ -24,7 +24,7 @@ loader = WebBaseLoader("https://docs.smith.langchain.com/overview")
 docs = loader.load()
 text_splitter = RecursiveCharacterTextSplitter()
 documents = text_splitter.split_documents(docs)
-embeddings = OpenAIEmbeddings(openai_api_key="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")
+embeddings = OpenAIEmbeddings(openai_api_key=".....")
 vector = FAISS.from_documents(documents, embeddings)
 retriever = vector.as_retriever()
 
@@ -40,7 +40,7 @@ tools = [retriever_tool]
 
 # 3. Create Agent
 prompt = hub.pull("hwchase17/openai-functions-agent")
-llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0,openai_api_key="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")
+llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0,openai_api_key=".......")
 agent = create_openai_functions_agent(llm, tools, prompt)
 agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
 
